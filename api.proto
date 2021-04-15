@@ -1,0 +1,27 @@
+syntax = "proto3";
+package api;
+
+option go_package="test.com/api";
+
+import "google/api/annotations.proto";
+
+// HelloWorld Service
+service HelloWorldService {
+   // HelloWorld Stub
+   rpc HelloWorld(HelloWorldRequest) returns (HelloWorldResponse) {
+       option (google.api.http) = {
+           post: "/HelloWorld"
+           body: "*"
+       };
+   };
+}
+
+// Request message for HelloWorldService.HelloWorld.
+message HelloWorldRequest {
+   string        message = 1;
+}
+
+// Response message for HelloWorldService.HelloWorld.
+message HelloWorldResponse {
+   string        message = 1;
+}
